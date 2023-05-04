@@ -1,15 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// public class StoryNode
-// {
-//     public string History;
-//     public string[] Answers;
-//     public bool IsFinal;
-//     public StoryNode[] NextNode;
-//     public Action OnNodeVisited;
-// }
-
 public class GameplayManager : MonoBehaviour
 {
     public Text HistoryText;
@@ -18,7 +9,6 @@ public class GameplayManager : MonoBehaviour
 
 
     private StoryNode currentNode;
-    // Start is called before the first frame update
     void Start()
     {
         currentNode = StoryFiller.FillStory();
@@ -77,7 +67,7 @@ public class GameplayManager : MonoBehaviour
         }
         else
         {
-            HistoryText.text += "\n" + "PRESS ESC TO CONTINUE";
+            HistoryText.text += "\n" + "The game has ended, press ESC";
         }
     }
 }

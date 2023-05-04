@@ -17,94 +17,88 @@ public static class StoryFiller
 {
     public static StoryNode FillStory()
     {
-        // Initialization Code.
         StoryNode beginning = createNode(
-            "You are at a crossroad. How did you get here again?",
-            new [] {"Go left", "Go right"}
+            "Welcome to the Cricket Trivia",
+            new [] {"Bowler", "Batsman"}
         );
 
-        StoryNode wentRightLol = createNode(
-            "You reach a dead end with a sign \"Dead End\". How convenient.",
-            new [] {"Go back and go left"}
+        StoryNode chosebatsman = createNode(
+            "Babar Azam is the best Batsman! No need for any Trivia.",
+            new [] {"Choose a bowler instead"}
         );
 
-        StoryNode catChoice1  = createNode(
-            "Why are you here again? Oh look. A cat on the dirt-paved road. What do you say to it?",
-            new [] {"Meow", "Meow?"}
+        StoryNode bowlopt1  = createNode(
+            "Ohh so you want the best bowler? You know Pakistani bowlers are the best",
+            new [] {"Yes, Indeed", "I do not think so"}
         );
 
-        StoryNode catChoice2  = createNode(
-            "The cat replies: Meow",
-            new [] {"Meow"}
+        StoryNode bowler1 = createNode(
+            "It's a known fact. Anyways, do you think Shaheen Afridi is the current best?",
+            new [] {"Hmmm"}
         );
 
-        StoryNode catChoice3  = createNode(
-            "Meow Meow",
-            new [] {"Meow Meow Meow"}
+        StoryNode bowler2  = createNode(
+            "What's with the hmmm!!",
+            new [] {"I meannn"}
         );
 
-        StoryNode catChoice4  = createNode(
-            "Meowwww",
-            new [] {"Meow Meow, Meow?"}
+        StoryNode bowler3  = createNode(
+            "You mean what?!!",
+            new [] {"There's also Muhammad Amir, just saying."}
         );
 
-        StoryNode catChoice5  = createNode(
-            "Meow Meow",
-            new [] {"Meeeooooow"}
+        StoryNode bowler4  = createNode(
+            "Hmmmm, that's true, not sure ...",
+            new [] {"I like Shaheen more though."}
         );
 
-        StoryNode catConclusion1 = createNode(
-            "The cat walks away. Did you just ... talk to a cat?",
-            new [] {"Yup!"}
+        StoryNode decision1 = createNode(
+            "It's difficult to decide, help me out. Have you decided who is the best?",
+            new [] {"Yesss!"}
         );
 
-        StoryNode catConclusion2 = createNode(
-            "... What did it say?",
-            new [] {"Meow"}
+        StoryNode decision2 = createNode(
+            "Who?",
+            new [] {"Ummm...."}
         );
 
-        StoryNode catConclusion3 = createNode(
-            "...",
-            new [] {"It told me I was late for class actually"}
+        StoryNode decision3 = createNode(
+            "...?",
+            new [] {"Ummmmmmmmm..."}
         );
 
-        StoryNode narratorIsTired = createNode(
-            "I am done actually, please end the game",
-            new [] {"End Game", "No"}
-        );
-
-        StoryNode fakeEndGame = createNode(
-            "The cat comes back and slaps you, and you forget what you were going to do. Great. Lets go to class.",
-            new [] {"Meow?"}
-        );
-
-        StoryNode actualEnd = createNode(
-            "I hate you. You then went to class. Hooray.",
-            new string[] {"Hooray!"}
+        StoryNode finalquestion = createNode(
+            "Ohh comeon, just say it.",
+            new [] {"Muhammad Amir", "Shaheen Afridi"}
         );
 
 
-        beginning.NextNode[0] = catChoice1;
-        beginning.NextNode[1] = wentRightLol;
+        StoryNode finalans = createNode(
+            "It was just a test, Muhammad Asif is the best.",
+            new string[] {":("}
+        );
 
-        wentRightLol.NextNode[0] = catChoice1;
 
-        catChoice1.NextNode[0] = catChoice2;
-        catChoice1.NextNode[1] = catChoice2;
-        catChoice2.NextNode[0] = catChoice3;
-        catChoice3.NextNode[0] = catChoice4;
-        catChoice4.NextNode[0] = catChoice5;
+        beginning.NextNode[0] = bowlopt1;
+        beginning.NextNode[1] = chosebatsman;
 
-        catChoice5.NextNode[0] = catConclusion1;
-        catConclusion1.NextNode[0] = catConclusion2;
-        catConclusion2.NextNode[0] = catConclusion3;
-        catConclusion3.NextNode[0] = narratorIsTired;
+        chosebatsman.NextNode[0] = bowlopt1;
 
-        narratorIsTired.NextNode[0] = fakeEndGame;
-        narratorIsTired.NextNode[1] = actualEnd;
-        fakeEndGame.NextNode[0] = actualEnd;
+        bowlopt1.NextNode[0] = bowler1;
+        bowlopt1.NextNode[1] = bowler1;
 
-        actualEnd.IsFinal = true;
+        bowler1.NextNode[0] = bowler2;
+        bowler2.NextNode[0] = bowler3;
+        bowler3.NextNode[0] = bowler4;
+        bowler4.NextNode[0] = decision1;
+
+        decision1.NextNode[0] = decision2;
+        decision2.NextNode[0] = decision3;
+        decision3.NextNode[0] = finalquestion;
+
+        finalquestion.NextNode[0] = finalans;
+        finalquestion.NextNode[1] = finalans;
+        finalans.IsFinal = true;
 
         return beginning;
     }

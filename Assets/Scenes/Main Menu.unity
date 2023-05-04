@@ -272,7 +272,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Meow?
+  m_Text: Cricket Facts
 --- !u!222 &433982969
 CanvasRenderer:
   m_ObjectHideFlags: 0
